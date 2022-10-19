@@ -14,19 +14,18 @@ servidor.get('/', (req,res)=>{
     // console.log(req.params.idcuenta);
     // res.send("tu cuenta personal");
     res.send(`
-    ${os.homedir}
-    <br>
-    ${util.format('el computador %s inicio el servidor', `${os.hostname}`)}
-    <br>
-    <!-- el modulo path sirve para trabajar con rutas de archivos y directorios -->
-    ${path.basename(`${os.homedir}`)} <!-- devuelve la ultima porcion de una ruta (la base) -->
-    <br>
-    ${path.dirname(`${os.homedir}`)} <!-- devuelve la ruta de un archivo (en este caso la ruta del directorio de inicio) -->
-    <br>
-    ${path.join('/route1', 'folder1', '/route2', 'archive1')} <!--Convierte en una ruta valida-->
-    <br>
-    ${v8.getHeapCodeStatistics().code_and_metadata_size}
+    <div class="container">
+        <div class="primero divs">${os.homedir}</div>
+        <!-- el modulo path sirve para trabajar con rutas de archivos y directorios -->
+        <div class="segundo divs">${path.basename(`${os.homedir}`)}</div> <!-- devuelve la ultima porcion de una ruta (la base) -->
+        <div class="tercero divs">${path.dirname(`${os.homedir}`)}</div> <!-- devuelve la ruta de un archivo (en este caso la ruta del directorio de inicio) -->
+        <div class="cuarto divs">${util.format('el computador %s inicio el servidor', `${os.hostname}`)}</div>
+        <div class="quinto divs">${path.join('/route1', 'folder1', '/route2', 'archive1')}</div> <!--Convierte en una ruta valida-->
+        <div class="sexto divs">${v8.getHeapCodeStatistics().code_and_metadata_size}</div>
     <style>
+    *{margin:0;}
+    .container{width:100%;height:80vh;display:grid;grid-template-rows: auto auto auto auto auto auto;grid-template-columns:auto auto auto}
+    .divs{grid-column:2/3;text-align:center;}
     </style>
     <script>
     </script>
